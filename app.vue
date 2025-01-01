@@ -28,6 +28,7 @@ body {
 
 .pageContent {
   background-color: #415c7b;
+  color: black!important;
   padding: 15px;
 }
 
