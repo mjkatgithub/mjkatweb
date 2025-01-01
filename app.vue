@@ -7,10 +7,10 @@
       <!-- Navigation -->
       <nav :class="{ active: isMenuOpen }">
         <ul class="mainNav">
-          <li><NuxtLink to="/about">About</NuxtLink></li>
-          <li><NuxtLink to="/links">Links</NuxtLink></li>
-          <li><NuxtLink to="/datenschutzerklaerung">Datenschutz-Erklärung</NuxtLink></li>
-          <li><NuxtLink to="/impressum">Impressum</NuxtLink></li>
+          <li><NuxtLink to="/about" @click="hideMenu">About</NuxtLink></li>
+          <li><NuxtLink to="/links" @click="hideMenu">Links</NuxtLink></li>
+          <li><NuxtLink to="/datenschutzerklaerung" @click="hideMenu">Datenschutz-Erklärung</NuxtLink></li>
+          <li><NuxtLink to="/impressum" @click="hideMenu">Impressum</NuxtLink></li>
         </ul>
       </nav>
       <!-- Hamburger Menu -->
@@ -37,6 +37,10 @@ export default {
   methods: {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
+    },
+
+    hideMenu() {
+      this.isMenuOpen = false;
     },
   },
 };
@@ -96,6 +100,7 @@ nav {
   padding: 1rem;
   background-color: #819cbb;
   border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 .mainNav li a {
   text-decoration: none;
@@ -148,6 +153,19 @@ footer {
   border-bottom: 1px solid black;
 }
 
+@media (max-width: 599px) {
+  .mainNav li:hover {
+    background-color: #7E99B8;
+  }
+  nav.active {
+    position: absolute;
+    top: 46px; /* Direkt unter der Header-Höhe */
+    right: 16px;
+    width: 200px;
+    z-index: 10;
+  }
+}
+
 /* Media Queries für größere Bildschirme */
 @media (min-width: 600px) {
   .mainNav {
@@ -155,6 +173,7 @@ footer {
     justify-content: center;
     background: none;
     padding: 0;
+    box-shadow: none;
   }
   nav {
     display: flex;
@@ -165,7 +184,6 @@ footer {
 }
 
 @media (min-width: 1024px) {
-
   .pageHeader {
     margin-top: 10px;
     -webkit-border-radius: 20px 20px 0 0;
@@ -173,12 +191,10 @@ footer {
     border: 1px solid black;
     border-bottom: 0px;
   }
-
   .pageContent {
     border-left: solid 1px black;
     border-right: solid 1px black;
   }
-
   footer {
     -webkit-border-radius: 0 0 20px 20px;
     border-radius: 0 0 20px 20px;
