@@ -49,7 +49,7 @@ export default {
 <style>
 /* Mobile-First Design */
 
-/* Basis-Styling für mobile Geräte */
+/* Basic-Styling for mobile Devices */
 body {
   background-color: #213c5b;
   margin: 0;
@@ -69,7 +69,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* padding: 0.5rem 1rem; */
   padding-left: 1rem;
   padding-right: 1rem;
   background: #1e6695;
@@ -77,7 +76,6 @@ body {
   background: -webkit-linear-gradient(top, #1e6695 0%, #74aacc 33%, #79aecb 66%, #2f4a66 100%);
   background: linear-gradient(to bottom, #1e6695 0%, #74aacc 33%, #79aecb 66%, #2f4a66 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e6695', endColorstr='#2f4a66',GradientType=0 );
-  /* border-top: 1px solid black; */
 }
 
 /* Branding */
