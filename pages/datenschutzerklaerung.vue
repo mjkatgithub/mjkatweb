@@ -1,5 +1,5 @@
 <template>
-  <div>
-    datenschutzerklaerung
-  </div>
+  <article class="prose">
+    <ContentDoc path="/datenschutzerklaerung" />
+  </article>
 </template>

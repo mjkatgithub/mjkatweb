@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <article class="prose">
     Home
-  </div>
+  </article>
 </template>

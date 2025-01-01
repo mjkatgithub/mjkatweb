@@ -1,5 +1,5 @@
 <template>
-  <div>
-    links
-  </div>
+  <article class="prose">
+    <ContentDoc path="/links" />
+  </article>
 </template>

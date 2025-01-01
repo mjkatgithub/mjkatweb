@@ -1,5 +1,5 @@
 <template>
-  <div>
-    impressum
-  </div>
+  <article class="prose">
+    <ContentDoc path="/impressum" />
+  </article>
 </template>
