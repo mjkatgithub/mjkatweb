@@ -1,6 +1,5 @@
 ---
 layout: post
-title: PeaceDC @ UJZ Korn
 date: '2018-03-11'
 categories:
 - Mucke
@@ -8,6 +7,8 @@ tags: [PeaceDC, peacedevelopmentcrew, ras-or, Live, Konzert]
 comments: []
 excerpt_separator: <!--more-->
 ---
+# PeaceDC @ UJZ Korn
+
 Peace Development Crew // S.P. Music - Live Konzert + Party
 
 concerts mixed by [ras 'or](http://www.ras-or.com)

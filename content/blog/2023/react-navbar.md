@@ -1,6 +1,5 @@
 ---
 layout: post
-title: react-navbar
 date: '2023-02-12'
 categories:
 - Allgemein
@@ -8,6 +7,8 @@ tags: [coding, react]
 comments: []
 excerpt_separator: <!--more-->
 ---
+# react-navbar
+
 Well, I know it's been a wile that i write something.  
 I want to change that and I think this is the perfect topic to write an post about.
 
