@@ -10,9 +10,7 @@ export default defineNuxtConfig({
       theme: 'github-dark'
     }
   },
-  router: {
-    base: '/mjkatweb/' // Passe dies an den Namen deines Repositories an
-  },
+  // Removed invalid router base property
   app: {
     baseURL: '/mjkatweb/', // Set the base URL for the application
     buildAssetsDir: '/mjkatweb/_nuxt/' // Set the directory for build assets
