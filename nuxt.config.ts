@@ -13,8 +13,9 @@ export default defineNuxtConfig({
   router: {
     base: '/mjkatweb/' // Passe dies an den Namen deines Repositories an
   },
-  build: {
-    publicPath: '/mjkatweb/_nuxt/'
+  app: {
+    baseURL: '/mjkatweb/', // Set the base URL for the application
+    buildAssetsDir: '/mjkatweb/_nuxt/' // Set the directory for build assets
   },
   nitro: {
     prerender: {
