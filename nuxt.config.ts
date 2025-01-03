@@ -10,8 +10,8 @@ export default defineNuxtConfig({
     }
   },
   app: {
-    baseURL: process.env.NODE_ENV === 'production' ? '/mjkatweb/' : '/', // Set the base URL for the application
-    cdnURL: process.env.NODE_ENV === 'production' ? '/mjkatweb/_nuxt/' : '/' // Set the CDN URL for static assets
+    // baseURL: process.env.NODE_ENV === 'production' ? '/mjkatweb/' : '/', // Set the base URL for the application
+    // cdnURL: process.env.NODE_ENV === 'production' ? '/mjkatweb/_nuxt/' : '/' // Set the CDN URL for static assets
   },
   nitro: {
     prerender: {

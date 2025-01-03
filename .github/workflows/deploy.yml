@@ -34,6 +34,10 @@ jobs:
       - name: Clean .output folder
         run: rm -rf .output
 
+      # Set Environment Variable
+      - name: Set Environment Variable
+        run: echo "NUXT_APP_BASE_URL=/mjkatweb/" >> $GITHUB_ENV
+
       # Generate static files
       - name: Generate static files
         run: NODE_ENV=production npm run generate
