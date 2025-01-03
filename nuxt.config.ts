@@ -12,11 +12,16 @@ export default defineNuxtConfig({
     }
   },
   // Base URL für GitHub Pages
-  router: {
-    base: '/mjkatweb/' // Passe dies an den Namen deines Repositories an
+  app: {
+    baseURL: '/mjkatweb/' // Passe dies an den Namen deines Repositories an
   },
   // Optional: Output Directory für statische Dateien
   generate: {
-    dir: 'dist' // Standard ist 'dist', aber du kannst es anpassen
+    // Standard ist 'dist', aber du kannst es anpassen
+  },
+  nitro: {
+    prerender: {
+      crawlLinks: false
+    }
   }
 })
