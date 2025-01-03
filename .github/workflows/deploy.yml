@@ -30,15 +30,15 @@ jobs:
       - name: Set Environment Variable
         run: echo "NUXT_APP_BASE_URL=/mjkatweb/" >> $GITHUB_ENV
 
-      # Build the Nuxt application
-      - name: Build Nuxt app
-        run: npm run build
+      # Generate static files
+      - name: Generate static files
+        run: npm run generate
 
       # Upload artifact for GitHub Pages
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .output/public
+          path: dist
 
   deploy:
     name: Deploy to GitHub Pages
