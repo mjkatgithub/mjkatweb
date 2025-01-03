@@ -14,10 +14,5 @@ export default defineNuxtConfig({
   // Base URL für GitHub Pages
   app: {
     baseURL: '/mjkatweb/' // Passe dies an den Namen deines Repositories an
-  },
-  nitro: {
-    prerender: {
-      crawlLinks: false
-    }
   }
 })
