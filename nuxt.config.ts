@@ -11,8 +11,15 @@ export default defineNuxtConfig({
       theme: 'github-dark'
     }
   },
-  // Base URL für GitHub Pages
   router: {
     base: '/mjkatweb/' // Passe dies an den Namen deines Repositories an
   },
+  build: {
+    publicPath: '/mjkatweb/_nuxt/'
+  },
+  nitro: {
+    prerender: {
+      routes: ['/']
+    }
+  }
 })
