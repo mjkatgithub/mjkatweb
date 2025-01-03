@@ -10,10 +10,9 @@ export default defineNuxtConfig({
       theme: 'github-dark'
     }
   },
-  // Removed invalid router base property
   app: {
-    baseURL: '/mjkatweb/', // Set the base URL for the application
-    buildAssetsDir: '/mjkatweb/_nuxt/' // Set the directory for build assets
+    baseURL: process.env.NODE_ENV === 'production' ? '/mjkatweb/' : '/', // Set the base URL for the application
+    cdnURL: process.env.NODE_ENV === 'production' ? '/mjkatweb/_nuxt/' : '/' // Set the CDN URL for static assets
   },
   nitro: {
     prerender: {
