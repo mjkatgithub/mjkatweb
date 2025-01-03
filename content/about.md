@@ -11,12 +11,12 @@ Hello, my name is Melchior. In the past I posted various things on this blog, bu
 
 ## Sozial Media
 
-[![github](/assets/icons/github48.png)](https://github.com/mjkatgithub)
-[![facebook](/assets/icons/facebook48.png)](https://www.facebook.com/melcorethefirst/)
-[![twitter](/assets/icons/twitter48.png)](https://twitter.com/M_Kannengiesser)
-[![stackoverflow](/assets/icons/stackoverflow48.png)](https://stackoverflow.com/users/7678386/)
-[![reddit](/assets/icons/reddit48.png)](https://www.reddit.com/user/mjkatweb/)
-[![trello](/assets/icons/trello48.png)](https://trello.com/melchior26/)
+- [github](https://github.com/mjkatgithub)
+- [facebook](https://www.facebook.com/melcorethefirst/)
+- [twitter](https://twitter.com/M_Kannengiesser)
+- [stackoverflow](https://stackoverflow.com/users/7678386/)
+- [reddit](https://www.reddit.com/user/mjkatweb/)
+- [trello](https://trello.com/melchior26/)
 
 ## donate
 
