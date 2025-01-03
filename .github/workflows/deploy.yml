@@ -30,16 +30,13 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Export the environment variable for Nuxt
-      - name: Set Environment Variable
-        run: echo "NUXT_APP_BASE_URL=/mjkatweb/" >> $GITHUB_ENV
-
-      # Generate static files
+      # Clean .output folder
       - name: Clean .output folder
         run: rm -rf .output
 
+      # Generate static files
       - name: Generate static files
-        run: npm run generate
+        run: NODE_ENV=production npm run generate
 
       # Upload artifact for GitHub Pages
       - name: Upload artifact for GitHub Pages
