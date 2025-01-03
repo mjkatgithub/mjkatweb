@@ -15,10 +15,6 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/mjkatweb/' // Passe dies an den Namen deines Repositories an
   },
-  // Optional: Output Directory für statische Dateien
-  generate: {
-    // Standard ist 'dist', aber du kannst es anpassen
-  },
   nitro: {
     prerender: {
       crawlLinks: false
