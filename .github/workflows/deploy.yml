@@ -36,7 +36,7 @@ jobs:
 
       # Generate static files
       - name: Generate static files
-        run: NUXT_APP_BASE_URL=/mjkatweb/ npm run generate
+        run: NUXT_APP_BASE_URL=/mjkatweb/ npx nuxt build --preset github_pages
 
       # Upload artifact for GitHub Pages
       - name: Upload artifact for GitHub Pages
