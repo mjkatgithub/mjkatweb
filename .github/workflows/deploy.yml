@@ -1,4 +1,4 @@
-name: Deploy Nuxt App to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -8,44 +8,27 @@ on:
 
 jobs:
   build:
-    name: Build and Deploy
     runs-on: ubuntu-latest
 
     steps:
-      # Check out the repository
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      # Clear npm cache
-      - name: Clear npm cache
-        run: npm cache clean --force
+      - run: corepack enable
 
-      # Set up Node.js
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: "20"
 
-      # Install dependencies
-      - name: Install dependencies
-        run: npm install
+      - run: npm install
 
-      # Clean .output folder
-      - name: Clean .output folder
-        run: rm -rf .output
+      - run: NUXT_APP_BASE_URL=/mjkatweb/ npx nuxt build --preset github_pages
 
-      # Generate static files
-      - name: Generate static files
-        run: NUXT_APP_BASE_URL=/mjkatweb/ npx nuxt build --preset github_pages
-
-      # Upload artifact for GitHub Pages
-      - name: Upload artifact for GitHub Pages
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: .output/public
 
   deploy:
-    name: Deploy to GitHub Pages
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -53,6 +36,5 @@ jobs:
       id-token: write
 
     steps:
-      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
