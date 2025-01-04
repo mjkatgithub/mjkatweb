@@ -23,8 +23,8 @@ jobs:
       - run: npm install
 
       - run: |
-          export NUXT_APP_BASE_URL=/mjkatweb/
-          export NUXT_APP_CDN_URL=/mjkatweb/_nuxt/
+          echo "NUXT_APP_BASE_URL=/mjkatweb/" >> $GITHUB_ENV
+          echo "NUXT_APP_CDN_URL=/mjkatweb/_nuxt/" >> $GITHUB_ENV
           npx nuxt generate --preset github_pages
 
       - name: Upload artifact
