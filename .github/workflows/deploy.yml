@@ -1,0 +1,85 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - run: corepack enable
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - run: npm install
+
+      - run: |
+          echo "NUXT_APP_BASE_URL=/mjkatweb/" >> $GITHUB_ENV
+          echo "NUXT_APP_CDN_URL=/mjkatweb/_nuxt/" >> $GITHUB_ENV
+          npx nuxt generate --preset github_pages
+
+      - name: List generated files
+        run: ls -la .output/public
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .output/public
+          name: github-pages
+
+      - name: Verify artifact upload
+        run: |
+          echo "Verifying artifact upload..."
+          response=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts")
+          echo "Response: $response"
+          echo $response | jq '.artifacts[] | select(.name=="github-pages")'
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: List artifacts before sleep
+        run: |
+          echo "Listing artifacts before sleep..."
+          response=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts")
+          echo "Response: $response"
+          echo $response | jq '.artifacts[]'
+
+      - name: Wait for artifact
+        run: sleep 60
+
+      - name: List artifacts after sleep
+        run: |
+          echo "Listing artifacts after sleep..."
+          response=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts")
+          echo "Response: $response"
+          echo $response | jq '.artifacts[]'
+
+      - name: Debug artifact URL
+        run: |
+          echo "Artifact exchange URL: https://pipelinesghubeus23.actions.githubusercontent.com/QILp31ZTflcWfDxLGIBcWLmgLsYdle06MafoKHnovxRpzOf7dv/_apis/pipelines/workflows/${{ github.run_id }}/artifacts?api-version=6.0-preview"
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v2
+        with:
+          artifact_name: github-pages
+          token: ${{ secrets.GITHUB_TOKEN }}
