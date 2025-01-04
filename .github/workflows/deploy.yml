@@ -74,6 +74,10 @@ jobs:
           echo "Response: $response"
           echo $response | jq '.artifacts[]'
 
+      - name: Debug artifact URL
+        run: |
+          echo "Artifact exchange URL: https://pipelinesghubeus23.actions.githubusercontent.com/QILp31ZTflcWfDxLGIBcWLmgLsYdle06MafoKHnovxRpzOf7dv/_apis/pipelines/workflows/${{ github.run_id }}/artifacts?api-version=6.0-preview"
+
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
         with:
