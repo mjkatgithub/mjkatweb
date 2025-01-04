@@ -40,5 +40,13 @@ jobs:
       id-token: write
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
+
+      - name: Debug deployment
+        run: |
+          echo "Deployment completed"
+          ls -la .output/public
